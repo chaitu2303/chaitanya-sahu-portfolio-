@@ -258,12 +258,14 @@ h3 {
 }
 
 .hero-image img {
-    max-width: 300px; /* Control image size */
-    height: auto;
+    width: 250px; /* Set a fixed width */
+    height: 250px; /* Set a fixed height, same as width for a perfect circle */
+    object-fit: cover; /* This is the key: it crops the image to fill the space without distortion */
     border-radius: 50%; /* Circular image */
     border: 5px solid var(--accent-dark);
     box-shadow: var(--shadow-light);
     transition: transform 0.3s ease;
+
 }
 
 .hero-image img:hover {

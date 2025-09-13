@@ -169,6 +169,88 @@ h3 {
     display: flex;
     gap: 30px;
 }
+/* Mobile Navigation Toggle */
+.menu-toggle {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it's above other content */
+}
+
+.menu-toggle .bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-dark);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Styles for when the menu is active (JavaScript will add/remove 'is-active' class) */
+.menu-toggle.is-active .bar:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+
+.menu-toggle.is-active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.is-active .bar:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+/* Adjust navbar on smaller screens */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Show the hamburger menu on mobile */
+    }
+
+    .navbar {
+        flex-direction: row; /* Keep logo and toggle on one line */
+        justify-content: space-between; /* Space them out */
+        align-items: center;
+    }
+
+    .nav-links {
+        display: none; /* Hide nav links by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--primary-bg); /* Match header background */
+        position: absolute;
+        top: 75px; /* Adjust based on your header's height */
+        left: 0;
+        padding: 20px 0;
+        border-top: 1px solid var(--border-color);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        z-index: 999; /* Below the header but above other content */
+    }
+
+    .nav-links.active {
+        display: flex; /* Show nav links when 'active' class is added by JS */
+    }
+
+    .nav-links li {
+        text-align: center;
+        margin: 10px 0; /* Add vertical spacing */
+    }
+
+    .nav-links li a {
+        padding: 10px 0;
+        display: block; /* Make links full-width clickable */
+        font-size: 1.2em;
+    }
+
+    .nav-links li a:hover {
+        background-color: var(--secondary-bg);
+    }
+
+    /* Remove default media query stacking for navbar if it conflicts */
+    .navbar .nav-links { /* Ensure previous stacking doesn't override */
+        flex-direction: column;
+    }
+}
 
 .nav-links li a {
     color: var(--text-light);

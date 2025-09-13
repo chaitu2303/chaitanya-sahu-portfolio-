@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaitanya Kumar Sahu - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">CHAITANYA K. SAHU</a>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Quantum Leaps & Cyber Resilience</h1>
+                <p class="subtitle">The Future-Forward Engineering Journey of Chaitanya Kumar Sahu</p>
+                <p>Highly motivated B.Tech Computer Science student with a strong foundation in Cybersecurity and Quantum Computing. Eager to contribute to innovative solutions.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/chaitanya-kumar-sahu" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/your-github-username" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:chaitanyakumarsahu00@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+                <a href="#projects" class="btn">Explore My Projects</a>
+            </div>
+            <div class="hero-image">
+                <img src="images/profile.jpg" alt="Chaitanya Kumar Sahu Profile Picture">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-me section-padding">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>My journey into Computer Science and Engineering began with a fascination for how technology shapes our world. This led me to pursue a Diploma in Computer Engineering, where I built foundational skills and developed a practical understanding of systems. Currently, as a B.Tech student, I'm diving deeper into cutting-edge fields like Cybersecurity and Quantum Computing.</p>
+                <p>My passion is to innovate and solve complex problems. From securing digital landscapes through penetration testing to exploring the groundbreaking potential of quantum random number generation, I am constantly learning and seeking opportunities to apply my knowledge. I thrive in challenging environments and believe in continuous growth.</p>
+                <a href="link-to-your-resume.pdf" target="_blank" class="btn">Download My Resume</a> </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills section-padding bg-light">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <ul>
+                        <li>Python <span class="proficiency">(Proficient)</span></li>
+                        <li>Java <span class="proficiency">(Intermediate)</span></li>
+                        <li>C <span class="proficiency">(Intermediate)</span></li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Cybersecurity Tools</h3>
+                    <ul>
+                        <li>Nmap <span class="proficiency">(Proficient)</span></li>
+                        <li>Metasploit <span class="proficiency">(Proficient)</span></li>
+                        <li>Burp Suite <span class="proficiency">(Proficient)</span></li>
+                        <li>OWASP ZAP <span class="proficiency">(Proficient)</span></li>
+                        <li>Kali Linux <span class="proficiency">(Proficient)</span></li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Quantum Computing</h3>
+                    <ul>
+                        <li>Qiskit <span class="proficiency">(Proficient)</span></li>
+                        <li>IBM Quantum <span class="proficiency">(Familiar)</span></li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Web Technologies</h3>
+                    <ul>
+                        <li>HTML/CSS <span class="proficiency">(Intermediate)</span></li>
+                        <li>JavaScript <span class="proficiency">(Basics)</span></li>
+                        <li>FastAPI <span class="proficiency">(Intermediate)</span></li>
+                        <li>Streamlit <span class="proficiency">(Intermediate)</span></li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Databases & OS</h3>
+                    <ul>
+                        <li>MySQL <span class="proficiency">(Intermediate)</span></li>
+                        <li>Linux <span class="proficiency">(Intermediate)</span></li>
+                        <li>Windows <span class="proficiency">(Proficient)</span></li>
+                        <li>Git/GitHub <span class="proficiency">(Proficient)</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects section-padding">
+        <div class="container">
+            <h2>My Projects & Experience</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Quantum Random Number Generator</h3>
+                    <p class="project-subtitle">Amaravati Quantum Valley Hackathon 2025</p>
+                    <p>Developed a secure, bias-free QRNG using Quantum Superposition and Von Neumann debiasing. Exposed via FastAPI REST endpoint with Swagger UI.</p>
+                    <a href="link-to-qrng-details.html" class="btn-small">View Details</a> </div>
+                <div class="project-card">
+                    <h3>Web App VAPT & Pen Testing</h3>
+                    <p class="project-subtitle">Adiroha Solutions (OPC) Pvt. Ltd. Internship</p>
+                    <p>Performed security testing on e-commerce login/forgot-password modules, identifying OWASP Top 10 vulnerabilities and proposing mitigations.</p>
+                    <a href="link-to-vapt-details.html" class="btn-small">View Details</a> </div>
+                <div class="project-card">
+                    <h3>Penetration Testing & Network Scanning</h3>
+                    <p class="project-subtitle">Symbiosys Technologies Internship</p>
+                    <p>Spearheaded pen testing on Windows 7 & Metasploitable VMs, leveraging Nmap & Metasploit to gain Meterpreter shell access.</p>
+                    <a href="link-to-pen-test-details.html" class="btn-small">View Details</a> </div>
+                <div class="project-card">
+                    <h3>Facial Recognition Attendance System</h3>
+                    <p class="project-subtitle">Diploma Final Year Project</p>
+                    <p>Designed and developed an automated attendance system using Python and MySQL, significantly improving accuracy.</p>
+                    <a href="link-to-facial-rec-details.html" class="btn-small">View Details</a> </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="certifications section-padding bg-light">
+        <div class="container">
+            <h2>Certifications</h2>
+            <div class="cert-list">
+                <p><strong>Startup Business Management Program</strong> – Ratan Tata Innovation Hub (AP Certificate) (August 20, 2025)</p>
+                <p><strong>AI Tools & ChatGPT Workshop</strong> – Be10x (August 3, 2025)</p>
+                <p><strong>HTML for Absolute Beginners</strong> – Traversy Media (Cursa) (July 27, 2025)</p>
+                <p><strong>Artificial Intelligence</strong> – Infosys Springboard (August 2023)</p>
+                <p><strong>Python Programming</strong> – AOG IT Solutions (Grade A+, June 2023)</p>
+                <p><strong>C Programming Language</strong> – AOG IT Solutions (Grade A+, April 2023)</p>
+                <p><strong>MS Office</strong> – AOG IT Solutions (Grade A+, February 2023)</p>
+                <p><strong>Workshop On Power Python</strong> - LUDIFU (August 2022)</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements" class="achievements section-padding">
+        <div class="container">
+            <h2>Achievements</h2>
+            <div class="achievement-list">
+                <h3>Science Olympiad Foundation (SOF)</h3>
+                <ul>
+                    <li>Awarded Zonal Excellence Certificate for outstanding performance in the SOF National Cyber Olympiad (Class 10).</li>
+                    <li>Received Certificate of Distinction in the International General Knowledge Olympiad (IGKO).</li>
+                    <li>Participation Certificates in multiple SOF Olympiads (Science, Mathematics, Cyber) (Classes 9-10).</li>
+                </ul>
+                <h3>Government of Andhra Pradesh</h3>
+                <ul>
+                    <li>Received Certificate of Appreciation during Visakha Utsav-2018 for contributions to cultural/tourism initiatives.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact section-padding bg-light">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <p>I'm always open to discussing new projects, collaboration opportunities, or simply connecting with fellow tech enthusiasts.</p>
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> chaitanyakumarsahu00@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +91 8309869017</p>
+                <p><i class="fas fa-map-marker-alt"></i> Visakhapatnam, Andhra Pradesh</p>
+            </div>
+            <form action="https://formspree.io/f/yourformid" method="POST" class="contact-form"> <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+            <p class="form-help">For the contact form to work, you'll need to set up a free Formspree account and replace 'yourformid' in the action attribute above. Instructions will follow.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Chaitanya Kumar Sahu. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

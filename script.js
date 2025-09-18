@@ -1,35 +1,89 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // --- Mobile Menu Toggle ---
+// Wait for the DOM content to be fully loaded before running the script
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Mobile menu toggle logic
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
 
-    if (mobileMenu && navLinks) {
-        mobileMenu.addEventListener('click', function() {
+    if (mobileMenu) {
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
             navLinks.classList.toggle('active');
-            mobileMenu.classList.toggle('is-active'); // For animating the icon
         });
     }
 
-    // --- Smooth scrolling for navigation links ---
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
-
-                // Close mobile navigation after clicking a link
-                if (window.innerWidth <= 768 && navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    mobileMenu.classList.remove('is-active');
-                }
+    const navItems = document.querySelectorAll('.nav-links a');
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                mobileMenu.classList.remove('active');
             }
         });
     });
-    // You can add more JavaScript functionality here as needed.
+
+
+    // Custom cursor functionality
+    const cursor = document.querySelector('.cursor');
+    const interactiveElements = document.querySelectorAll('a, .btn, .btn-small');
+
+    // Move the custom cursor with the mouse
+    document.addEventListener('mousemove', e => {
+        cursor.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
+    });
+
+    // Add hover effect to the custom cursor
+    interactiveElements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            cursor.classList.add('hover-effect');
+        });
+        element.addEventListener('mouseleave', () => {
+            cursor.classList.remove('hover-effect');
+        });
+    });
+
+});// Wait for the DOM content to be fully loaded before running the script
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Mobile menu toggle logic
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (mobileMenu) {
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    }
+
+    const navItems = document.querySelectorAll('.nav-links a');
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
+        });
+    });
+
+
+    // Custom cursor functionality
+    const cursor = document.querySelector('.cursor');
+    const interactiveElements = document.querySelectorAll('a, .btn, .btn-small');
+
+    // Move the custom cursor with the mouse
+    document.addEventListener('mousemove', e => {
+        cursor.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
+    });
+
+    // Add hover effect to the custom cursor
+    interactiveElements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            cursor.classList.add('hover-effect');
+        });
+        element.addEventListener('mouseleave', () => {
+            cursor.classList.remove('hover-effect');
+        });
+    });
+
 });

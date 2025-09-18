@@ -31,22 +31,23 @@ body, a, .btn, .btn-small {
     --text-color-dark: #A9A9A9;
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
+/* --- New Background Design --- */
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.8;
     background-color: var(--bg-color-dark);
     color: var(--text-color-light);
     overflow-x: hidden;
+    background-image:
+        radial-gradient(ellipse at top left, rgba(0, 166, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom right, rgba(88, 226, 153, 0.1) 0%, transparent 50%);
+    background-size: 200% 200%;
+    animation: background-move 10s infinite alternate ease-in-out;
+}
+
+@keyframes background-move {
+    from { background-position: 0 0; }
+    to { background-position: 100% 100%; }
 }
 
 .container {
@@ -251,13 +252,15 @@ h2::after {
 
 .hero-image {
     flex-shrink: 0;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .hero-image img {
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    border: 6px solid var(--primary-color);
     object-fit: cover;
     filter: grayscale(80%) drop-shadow(0 0 15px rgba(0, 166, 255, 0.4));
     transition: all 0.5s ease;
@@ -267,6 +270,26 @@ h2::after {
     transform: scale(1.05) rotate(3deg);
     filter: none;
 }
+
+.hero-image::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: conic-gradient(from 180deg at 50% 50%, var(--primary-color), var(--accent-color), var(--primary-color), var(--accent-color));
+    animation: spin 5s linear infinite;
+    z-index: -1;
+    border-radius: 50%;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 
 /* Sections */
 .section-padding {

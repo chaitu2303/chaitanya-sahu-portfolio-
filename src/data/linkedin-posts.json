@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "text": "Excited to share that my new 3D technical portfolio is officially live! 🚀 Integrating interactive sandboxes and real-time GitHub/LinkedIn sync to showcase my journey in Cybersecurity and Full-Stack Engineering. Check it out at chaitanya-sahu.vercel.app #Portfolio #NextJS #FramerMotion #Web3",
+    "date": "2026-05-05T11:00:00Z",
+    "likes": 524,
+    "comments": 68,
+    "url": "https://linkedin.com/in/chaitanya-kumar-sahu"
+  },
+  {
+    "id": "2",
+    "text": "Deeply engaged in advanced VAPT research! 🛡️ Successfully completed a specialized security audit for a campus infrastructure. Continuous learning is the key to staying ahead in the cyber threat landscape. #CyberSecurity #VAPT #InfoSec #Research",
+    "date": "2026-05-02T09:00:00Z",
+    "likes": 412,
+    "comments": 52,
+    "url": "https://linkedin.com/in/chaitanya-kumar-sahu"
+  },
+  {
+    "id": "3",
+    "text": "Just wrapped up my second Cybersecurity Internship at Adiroha Solutions! 🛡️ Successfully performed network penetration testing and security audits for three major client environments. Moving one step closer to becoming a specialized security architect. #CyberSecurity #VAPT #InfoSec #InternshipSuccess",
+    "date": "2026-04-20T14:00:00Z",
+    "likes": 285,
+    "comments": 31,
+    "url": "https://linkedin.com/in/chaitanya-kumar-sahu"
+  },
+  {
+    "id": "4",
+    "text": "Deployed a real-time AI Security Dashboard today! 🧠 Leveraging LLMs to detect anomalous behavior in web traffic. This project combines my passion for Full-Stack development with proactive threat hunting. The tech stack: Next.js, FastAPI, and OpenAI. #AI #CyberSecurity #FullStack #Python",
+    "date": "2026-03-15T11:30:00Z",
+    "likes": 198,
+    "comments": 24,
+    "url": "https://linkedin.com/in/chaitanya-kumar-sahu"
+  },
+  {
+    "id": "5",
+    "text": "Honored to receive the 'Top Performer' award at the 2026 AI Workshop - AAVISHKAR! 🏆 Deep diving into computer vision and Haar cascades for facial recognition. Special thanks to the faculty at @GVPT for the guidance. #AI #MachineLearning #Award #GVPT",
+    "date": "2026-02-25T10:45:00Z",
+    "likes": 356,
+    "comments": 42,
+    "url": "https://linkedin.com/in/chaitanya-kumar-sahu"
+  },
+  {
+    "id": "6",
+    "text": "Completed the Infosys Springboard AI & ML certification! 🧠 This course provided deep insights into neural networks and data engineering. Looking forward to implementing these concepts in my upcoming security projects. #NeverStopLearning #Infosys #AI #ML",
+    "date": "2026-01-10T09:00:00Z",
+    "likes": 174,
+    "comments": 15,
+    "url": "https://linkedin.com/in/chaitanya-kumar-sahu"
+  }
+]

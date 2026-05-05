@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ig1",
+    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop",
+    "caption": "Late night coding session optimizing database queries. ☕💻",
+    "likes": 42
+  },
+  {
+    "id": "ig2",
+    "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&auto=format&fit=crop",
+    "caption": "Exploring zero-trust architecture today. Security is not an afterthought! 🔒",
+    "likes": 56
+  },
+  {
+    "id": "ig3",
+    "image": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=600&auto=format&fit=crop",
+    "caption": "New mechanical keyboard arrived! Keychron K2 making typing an absolute joy. ⌨️✨",
+    "likes": 112
+  },
+  {
+    "id": "ig4",
+    "image": "https://images.unsplash.com/photo-1605379399642-870262d3d051?q=80&w=600&auto=format&fit=crop",
+    "caption": "Setting up the homelab server rack for some Docker experiments. 🐋",
+    "likes": 78
+  },
+  {
+    "id": "ig5",
+    "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=600&auto=format&fit=crop",
+    "caption": "Attended an amazing tech meetup this weekend. Networking is key! 🤝",
+    "likes": 104
+  },
+  {
+    "id": "ig6",
+    "image": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=600&auto=format&fit=crop",
+    "caption": "Finally deployed the v2 of my portfolio using Next.js! 🚀",
+    "likes": 89
+  }
+]

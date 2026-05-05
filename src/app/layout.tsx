@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Outfit } from "next/font/google";
+import { Outfit, Sora, Inter } from "next/font/google";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -8,7 +8,20 @@ const outfit = Outfit({
   display: "swap",
 });
 
+const sora = Sora({
+  subsets: ["latin"],
+  variable: "--font-sora",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
+  metadataBase: new URL("http://localhost:3000"),
   title: "Chaitanya Kumar Sahu | Full-Stack Developer",
   description: "Full-Stack Developer & Security-Focused Engineer. Open to fresher / junior engineering roles. Portfolio showcasing projects, certifications, and skills.",
   icons: {
@@ -33,7 +46,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${outfit.variable} antialiased`}>
+      <body className={`${outfit.variable} ${sora.variable} ${inter.variable} antialiased`}>
         {children}
       </body>
     </html>

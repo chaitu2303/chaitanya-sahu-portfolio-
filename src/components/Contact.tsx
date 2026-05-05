@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, CheckCircle, Mail, MessageSquare, Globe, ShieldCheck, Terminal, Smartphone, Zap } from "lucide-react";
-import { FaGithub, FaLinkedin, FaTwitter, FaDiscord } from "react-icons/fa6";
+import { Send, CheckCircle, Mail, MessageSquare, Globe, ShieldCheck, Terminal, Smartphone, Zap, Phone } from "lucide-react";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa6";
 
 export const Contact = () => {
   const [sent, setSent] = useState(false);
@@ -28,8 +28,9 @@ export const Contact = () => {
     { href: "mailto:chaitanyakumarsahu00@gmail.com", icon: Mail, label: "Direct Email", color: "text-rose-400", bg: "bg-rose-500/10" },
     { href: "https://www.linkedin.com/in/chaitanya-kumar-sahu", icon: FaLinkedin, label: "LinkedIn Pro", color: "text-blue-400", bg: "bg-blue-500/10" },
     { href: "https://github.com/chaitu2303", icon: FaGithub, label: "Source Code", color: "text-zinc-400", bg: "bg-white/10" },
-    { href: "#", icon: FaDiscord, label: "Community", color: "text-indigo-400", bg: "bg-indigo-500/10" },
+    { href: "tel:+918309869017", icon: Phone, label: "Phone Connection", color: "text-emerald-400", bg: "bg-emerald-500/10" },
   ];
+
 
   return (
     <section id="contact" className="relative py-24 md:py-48 overflow-hidden">

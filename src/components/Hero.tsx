@@ -18,7 +18,7 @@ export const Hero = () => {
   };
 
   const scrollToContact = () => {
-    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (

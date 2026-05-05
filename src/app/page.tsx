@@ -13,6 +13,7 @@ import { MyWorld } from "@/components/MyWorld";
 import { Certificates } from "@/components/Certificates";
 import { CodingBackground } from "@/components/CodingBackground";
 import { Splash } from "@/components/Splash";
+import { Contact } from "@/components/Contact";
 import { Github, Linkedin, Mail, ExternalLink, ShieldCheck, Menu, X, Search } from "lucide-react";
 
 export default function Home() {
@@ -29,6 +30,7 @@ export default function Home() {
     { name: "Roadmap", id: "roadmap" },
     { name: "Analytics", id: "dashboard" },
     { name: "My World", id: "myworld" },
+    { name: "Contact", id: "contact" },
   ];
 
   const scrollTo = (id: string) => {
@@ -90,7 +92,7 @@ export default function Home() {
                 </button>
                 
                 <button 
-                  onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}
+                  onClick={() => scrollTo("contact")}
                   className="bg-cyan-600 hover:bg-cyan-500 text-white px-5 md:px-7 py-2 md:py-3 rounded-[1.2rem] text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] shadow-[0_0_25px_rgba(34,211,238,0.3)] transition-all flex items-center gap-2 group whitespace-nowrap"
                 >
                   Hire <span className="hidden sm:inline">Me</span>
@@ -167,6 +169,10 @@ export default function Home() {
 
             <section id="myworld" className="scroll-mt-24 md:scroll-mt-32">
               <MyWorld />
+            </section>
+
+            <section id="contact" className="scroll-mt-24 md:scroll-mt-32">
+              <Contact />
             </section>
           </div>
 

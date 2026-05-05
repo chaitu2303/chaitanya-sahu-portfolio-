@@ -1,0 +1,106 @@
+[
+  {
+    "id": "cert-1",
+    "title": "Cyber Security Intern",
+    "issuer": "Symbiosys Technologies",
+    "issue_date": "2025-05-01",
+    "duration": "May 2025 - Jun 2025",
+    "category": "Internship",
+    "skills_gained": ["Penetration Testing", "NSE Scripts", "Metasploit", "Risk Analysis"],
+    "priority_level": 1,
+    "verification_available": true,
+    "description": "Conducted penetration testing on 5+ vulnerable VMs, identifying critical misconfigurations and delivering structured risk analysis reports."
+  },
+  {
+    "id": "cert-2",
+    "title": "Cyber Security Intern",
+    "issuer": "Adiroha Solutions (OPC)",
+    "issue_date": "2024-07-01",
+    "duration": "Jul 2024 - Sep 2024",
+    "category": "Internship",
+    "skills_gained": ["VAPT", "OWASP Top 10", "SQL Injection", "Secure Token Handling"],
+    "priority_level": 1,
+    "verification_available": true,
+    "description": "Performed VAPT on web applications, identified SQL Injection and OWASP Top 10 vulnerabilities, and recommended security measures."
+  },
+  {
+    "id": "cert-3",
+    "title": "Artificial Intelligence",
+    "issuer": "Infosys Springboard",
+    "issue_date": "2024-12-01",
+    "category": "Artificial Intelligence",
+    "skills_gained": ["AI Fundamentals", "Machine Learning Basics"],
+    "priority_level": 2,
+    "verification_available": true
+  },
+  {
+    "id": "cert-4",
+    "title": "Introduction to Artificial Intelligence",
+    "issuer": "Simplilearn SkillUp",
+    "issue_date": "2024-10-01",
+    "category": "Artificial Intelligence",
+    "skills_gained": ["AI Concepts", "Neural Networks Intro"],
+    "priority_level": 2,
+    "verification_available": true
+  },
+  {
+    "id": "cert-5",
+    "title": "Startup Business Management Program",
+    "issuer": "Ratan Tata Innovation Hub AP",
+    "issue_date": "2024-08-01",
+    "category": "Management",
+    "skills_gained": ["Business Strategy", "Innovation Management"],
+    "priority_level": 2,
+    "verification_available": true
+  },
+  {
+    "id": "cert-6",
+    "title": "Python Programming",
+    "issuer": "AOG IT Solutions",
+    "issue_date": "2024-06-01",
+    "category": "Programming",
+    "skills_gained": ["Python Core", "Data Structures"],
+    "priority_level": 2,
+    "verification_available": true
+  },
+  {
+    "id": "cert-7",
+    "title": "Zonal Excellence Certificate",
+    "issuer": "SOF National Cyber Olympiad",
+    "issue_date": "2020-01-01",
+    "category": "Achievement",
+    "skills_gained": ["Cyber Fundamentals"],
+    "priority_level": 3,
+    "verification_available": true
+  },
+  {
+    "id": "cert-8",
+    "title": "Certificate of Appreciation",
+    "issuer": "Visakha Utsav-2018",
+    "issue_date": "2018-12-01",
+    "category": "Community",
+    "skills_gained": ["Coordination", "Management"],
+    "priority_level": 3,
+    "verification_available": true
+  },
+  {
+    "id": "cert-9",
+    "title": "Email Writing Skills",
+    "issuer": "Online Course",
+    "issue_date": "2023-01-01",
+    "category": "Soft Skills",
+    "skills_gained": ["Professional Communication"],
+    "priority_level": 4,
+    "verification_available": false
+  },
+  {
+    "id": "cert-10",
+    "title": "Time Management",
+    "issuer": "Online Course",
+    "issue_date": "2023-02-01",
+    "category": "Soft Skills",
+    "skills_gained": ["Productivity"],
+    "priority_level": 4,
+    "verification_available": false
+  }
+]

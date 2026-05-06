@@ -3,12 +3,6 @@ import { Globe2, Cpu, Sparkles, Target, FileText, Shield, ExternalLink, Download
 import { useEffect, useState } from "react";
 import { STATS_EVENTS, trackEvent } from "@/lib/stats";
 
-const calculateAge = () => {
-  const birthDate = new Date("2005-03-23");
-  const difference = Date.now() - birthDate.getTime();
-  const ageDate = new Date(difference);
-  return Math.abs(ageDate.getUTCFullYear() - 1970);
-};
 
 interface VisionDetail {
   name: string;
@@ -85,10 +79,48 @@ const visionDetails: Record<string, VisionDetail> = {
 export const MyWorld = () => {
   const [selectedVision, setSelectedVision] = useState<VisionDetail | null>(null);
   const [time, setTime] = useState(new Date());
+  const [ageDecimal, setAgeDecimal] = useState("21.000000000");
+  const [secondsElapsed, setSecondsElapsed] = useState(0);
+  const [daysElapsed, setDaysElapsed] = useState(0);
+  const [yearProgress, setYearProgress] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const birthDate = new Date("2005-03-23T00:00:00");
+    
+    const updateStats = () => {
+      const now = new Date();
+      const diffMs = now.getTime() - birthDate.getTime();
+      
+      // Calculate exact decimal age (using exact average milliseconds in Gregorian year)
+      const msInYear = 365.2425 * 24 * 60 * 60 * 1000;
+      const exactAge = diffMs / msInYear;
+      setAgeDecimal(exactAge.toFixed(9));
+      
+      // Days & seconds elapsed
+      const totalSecs = Math.floor(diffMs / 1000);
+      const totalDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+      setSecondsElapsed(totalSecs);
+      setDaysElapsed(totalDays);
+      
+      // Progress of current age year
+      const currentYear = now.getFullYear();
+      let lastBirthday = new Date(currentYear, 2, 23, 0, 0, 0); // March index is 2
+      if (now < lastBirthday) {
+        lastBirthday = new Date(currentYear - 1, 2, 23, 0, 0, 0);
+      }
+      const nextBirthday = new Date(lastBirthday.getFullYear() + 1, 2, 23, 0, 0, 0);
+      const progress = ((now.getTime() - lastBirthday.getTime()) / (nextBirthday.getTime() - lastBirthday.getTime())) * 100;
+      setYearProgress(progress);
+    };
+
+    updateStats();
+    const interval = setInterval(updateStats, 50);
+    return () => clearInterval(interval);
   }, []);
 
   const timeString = time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
@@ -164,7 +196,7 @@ export const MyWorld = () => {
           </div>
 
           {/* System Terminal Card - Replaced with PREMIUM SYSTEM STATUS console */}
-          <div className="glass-card p-8 bg-black/85 backdrop-blur-3xl border border-white/5 rounded-[2.5rem] flex flex-col justify-center text-left relative overflow-hidden font-mono text-[11px] min-h-[250px]">
+          <div className="glass-card p-8 bg-black/85 backdrop-blur-3xl border border-white/5 rounded-[2.5rem] flex flex-col justify-center text-left relative overflow-hidden font-mono text-[11px] min-h-[385px]">
              {/* Glowing cyan dot */}
              <div className="absolute top-6 right-6 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_10px_rgba(52,211,153,0.8)]" />
@@ -173,17 +205,46 @@ export const MyWorld = () => {
 
              <div className="space-y-4">
                 <div>
-                   <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest block mb-1">SYSTEM STATUS</span>
+                   <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest block mb-1">SYSTEM CLOCK</span>
                    <span className="text-sm font-black text-white tracking-widest">{timeString} IST</span>
                 </div>
 
                 <div className="border-t border-white/5 pt-3">
-                   <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest block mb-1">AGE</span>
-                   <span className="text-xs font-black text-cyan-400 tracking-widest">{calculateAge()} Years</span>
+                   <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest block mb-1">CHRONO TELEMETRY [DOB: 23-03-2005]</span>
+                   <div className="text-xs sm:text-sm font-black text-cyan-400 tracking-wider tabular-nums font-mono">
+                      {ageDecimal} <span className="text-[9px] text-zinc-500 font-bold uppercase tracking-widest ml-1">Years</span>
+                   </div>
+                   {/* Mini Year Progress loader */}
+                   <div className="mt-2.5">
+                      <div className="flex justify-between text-[7.5px] font-black text-zinc-600 uppercase tracking-widest mb-1.5">
+                        <span>Year Progress</span>
+                        <span>{yearProgress.toFixed(4)}%</span>
+                      </div>
+                      <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden relative">
+                         <motion.div 
+                           className="h-full bg-gradient-to-r from-cyan-500 to-indigo-500 rounded-full"
+                           style={{ width: `${yearProgress}%` }}
+                         />
+                      </div>
+                   </div>
                 </div>
 
                 <div className="border-t border-white/5 pt-3">
-                   <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest block mb-1.5">FOCUS</span>
+                   <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest block mb-1.5">LIFETIME METRICS</span>
+                   <div className="grid grid-cols-2 gap-4 text-[10px] font-black uppercase text-zinc-300 tracking-wider">
+                      <div>
+                        <span className="text-[7.5px] text-zinc-500 block mb-0.5">DAYS ELAPSED</span>
+                        <span className="text-white tabular-nums">{daysElapsed.toLocaleString()} DAYS</span>
+                      </div>
+                      <div>
+                        <span className="text-[7.5px] text-zinc-500 block mb-0.5">SECONDS RUNNING</span>
+                        <span className="text-white tabular-nums">{secondsElapsed.toLocaleString()} SEC</span>
+                      </div>
+                   </div>
+                </div>
+
+                <div className="border-t border-white/5 pt-3">
+                   <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest block mb-1.5">CORE FOCUS</span>
                    <div className="space-y-1 text-[10px] font-black uppercase text-zinc-300 tracking-wider">
                       <p>● Fullstack Systems</p>
                       <p>● AI Learning</p>
@@ -192,7 +253,7 @@ export const MyWorld = () => {
                 </div>
 
                 <div className="border-t border-white/5 pt-3">
-                   <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest block mb-1">STATUS</span>
+                   <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest block mb-1">EXECUTION STATE</span>
                    <span className="text-[10px] font-black text-white uppercase tracking-wider flex items-center">
                       Building • Learning • Shipping
                       <motion.span animate={{ opacity: [1, 0] }} transition={{ duration: 0.8, repeat: Infinity }} className="w-1.5 h-3.5 bg-cyan-400 ml-1.5 inline-block" />

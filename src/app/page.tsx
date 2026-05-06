@@ -30,7 +30,7 @@ export default function Home() {
     { name: "Certs", id: "certifications" },
     { name: "Roadmap", id: "roadmap" },
     { name: "Analytics", id: "dashboard" },
-    { name: "My World", id: "myworld" },
+    { name: "My Ecosystem", id: "myworld" },
     { name: "Contact", id: "contact" },
   ];
 

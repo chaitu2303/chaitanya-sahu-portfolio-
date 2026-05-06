@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Send, CheckCircle, Mail, MessageSquare, Globe, ShieldCheck, Terminal, Smartphone, Zap, Phone } from "lucide-react";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa6";
+import { STATS_EVENTS, trackEvent } from "@/lib/stats";
 
 export const Contact = () => {
   const [sent, setSent] = useState(false);
@@ -13,6 +14,7 @@ export const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    trackEvent(STATS_EVENTS.INTERACTION);
     setLoading(true);
     try {
       const res = await fetch("https://formspree.io/f/mvgbylpj", {
@@ -85,6 +87,7 @@ export const Contact = () => {
                   href={link.href}
                   target="_blank"
                   rel="noreferrer"
+                  onClick={() => trackEvent(STATS_EVENTS.INTERACTION)}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 + idx * 0.1 }}

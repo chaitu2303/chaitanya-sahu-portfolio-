@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Github, Linkedin, ShieldCheck, Code2, Award, Briefcase, Sparkles } from "lucide-react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { STATS_EVENTS, trackEvent } from "@/lib/stats";
 import { getGithubRepos, type Repository } from "@/lib/github";
 
 export const Hero = () => {
@@ -14,10 +15,12 @@ export const Hero = () => {
   }, []);
 
   const scrollToProjects = () => {
+    trackEvent(STATS_EVENTS.INTERACTION);
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const scrollToContact = () => {
+    trackEvent(STATS_EVENTS.INTERACTION);
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -42,15 +45,26 @@ export const Hero = () => {
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] font-black tracking-tighter text-white mb-10 leading-[1.05] font-outfit relative">
             Chaitanya Kumar <br />
-            <span className="relative z-10 bg-gradient-to-r from-violet-400 via-magenta-500 to-rose-500 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(217,70,239,0.4)]" style={{ color: "transparent" }}>
+            <span className="text-white">
               Sahu
             </span>
             <div className="absolute bottom-[-10%] left-[-10%] w-[120%] h-[120%] bg-magenta-500/5 blur-[100px] -z-10 rounded-full opacity-30" />
           </h1>
 
-          <p className="text-base md:text-lg lg:text-xl text-zinc-400 max-w-xl mb-14 leading-relaxed font-sora">
-            Architecting <span className="text-cyan-400 font-bold">Secure Infrastructures</span> and building <span className="text-white font-bold">Intelligent Full-Stack Systems</span> for the next digital era.
+          <p className="text-base md:text-lg lg:text-xl text-zinc-400 max-w-xl mb-8 leading-relaxed font-sora">
+            Building <span className="text-cyan-400 font-bold">Secure Web Applications</span> and responsive <span className="text-white font-bold">Full-Stack Systems</span> focused on performance and design.
           </p>
+
+          {/* Currently Building Status Card */}
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 mb-10 p-5 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-md max-w-xl">
+             <div className="flex items-center gap-2 text-[10px] font-black text-cyan-400 uppercase tracking-widest bg-cyan-500/10 border border-cyan-500/20 px-3 py-1 rounded-lg">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
+                Building
+             </div>
+             <p className="text-xs text-zinc-500 font-bold uppercase tracking-wider text-center sm:text-left leading-relaxed">
+                Currently Building: <span className="text-white font-black">AI + Emergency Response Systems</span> & <span className="text-white font-black">Advanced Motion Interfaces</span>
+             </p>
+          </div>
 
           <div className="flex flex-wrap gap-5 justify-center lg:justify-start">
             <button onClick={scrollToProjects} className="px-10 py-5 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white rounded-2xl font-black text-sm uppercase tracking-widest shadow-[0_0_30px_rgba(34,211,238,0.3)] transition-all hover:scale-105 active:scale-95 flex items-center gap-3 group">
@@ -94,28 +108,56 @@ export const Hero = () => {
           />
 
           {/* Profile Card Container */}
-          <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[480px] lg:h-[480px] rounded-[4.5rem] bg-zinc-950 p-4 border border-white/5 shadow-[0_0_100px_rgba(34,211,238,0.15)] overflow-hidden">
+          <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[480px] lg:h-[480px] rounded-[4.5rem] bg-zinc-950 p-4 border border-white/5 shadow-[0_0_100px_rgba(34,211,238,0.1)] overflow-hidden">
              <Image 
                src="/profile.JPG" 
                width={480} 
                height={480} 
                alt="Chaitanya Kumar Sahu" 
-               className="w-full h-full object-cover rounded-[4rem] filter contrast-[1.02] brightness-[0.98] saturate-[1.1] group-hover:scale-105 transition-transform duration-700" 
+               className="w-full h-full object-cover rounded-[4rem] filter contrast-[0.93] brightness-[0.80] saturate-[0.80] group-hover:scale-105 transition-transform duration-700" 
                priority 
              />
-             <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/5 via-transparent to-magenta-500/5 pointer-events-none" />
+             <div className="absolute inset-0 bg-[#020205]/20 bg-gradient-to-t from-[#020205]/40 via-transparent to-[#020205]/10 pointer-events-none mix-blend-multiply" />
           </div>
 
           {/* Availability Badge */}
           <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 4, repeat: Infinity }}
-            className="absolute -bottom-10 left-1/2 -translate-x-1/2 bg-zinc-950/90 backdrop-blur-3xl border border-emerald-500/40 px-14 py-5 rounded-3xl shadow-2xl flex items-center gap-4 z-30 whitespace-nowrap"
+            className="absolute -bottom-10 left-1/2 -translate-x-1/2 bg-zinc-950/90 backdrop-blur-3xl border border-emerald-500/30 px-8 py-3.5 sm:px-14 sm:py-5 rounded-2xl sm:rounded-3xl shadow-2xl flex items-center gap-3.5 sm:gap-4 z-30 whitespace-nowrap"
           >
             <span className="w-3.5 h-3.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_20px_rgba(52,211,153,0.8)]" />
-            <span className="text-[12px] font-black uppercase tracking-[0.4em] text-emerald-400">Open for Hiring</span>
+            <span className="text-[10px] sm:text-[12px] font-black uppercase tracking-[0.4em] text-emerald-400">Open for Hiring</span>
           </motion.div>
         </motion.div>
+      </div>
+
+      {/* ── Simple Animated Tech Ribbon ── */}
+      <div className="w-full max-w-7xl mt-24 border-t border-b border-white/5 py-5 overflow-hidden relative">
+         <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#020205] to-transparent z-10 pointer-events-none" />
+         <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#020205] to-transparent z-10 pointer-events-none" />
+         <div className="animate-marquee gap-16 text-[10px] font-black text-zinc-500 uppercase tracking-[0.35em] items-center">
+            <span>React.js</span> <span className="text-cyan-500">•</span>
+            <span>Next.js</span> <span className="text-magenta-500">•</span>
+            <span>Firebase</span> <span className="text-blue-500">•</span>
+            <span>Tailwind CSS</span> <span className="text-cyan-500">•</span>
+            <span>Python</span> <span className="text-magenta-500">•</span>
+            <span>FastAPI</span> <span className="text-blue-500">•</span>
+            <span>MongoDB</span> <span className="text-cyan-500">•</span>
+            <span>SQL Database</span> <span className="text-magenta-500">•</span>
+            <span>OpenCV</span> <span className="text-blue-500">•</span>
+            
+            {/* Duplicated for infinite effect */}
+            <span>React.js</span> <span className="text-cyan-500">•</span>
+            <span>Next.js</span> <span className="text-magenta-500">•</span>
+            <span>Firebase</span> <span className="text-blue-500">•</span>
+            <span>Tailwind CSS</span> <span className="text-cyan-500">•</span>
+            <span>Python</span> <span className="text-magenta-500">•</span>
+            <span>FastAPI</span> <span className="text-blue-500">•</span>
+            <span>MongoDB</span> <span className="text-cyan-500">•</span>
+            <span>SQL Database</span> <span className="text-magenta-500">•</span>
+            <span>OpenCV</span> <span className="text-blue-500">•</span>
+         </div>
       </div>
 
       {/* ── Stats Grid Row ── */}
@@ -124,11 +166,11 @@ export const Hero = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.5 }}
-        className="w-full max-w-7xl mt-48 grid grid-cols-2 md:grid-cols-4 gap-8"
+        className="w-full max-w-7xl mt-24 grid grid-cols-2 md:grid-cols-4 gap-8"
       >
         <div className="glass-card p-10 flex flex-col items-center justify-center text-center group hover:bg-cyan-500/5 rounded-[2.5rem]">
           <Github className="w-10 h-10 text-zinc-600 mb-5 group-hover:text-cyan-400" />
-          <span className="text-5xl font-black text-white font-outfit">{repos.length}+</span>
+          <span className="text-5xl font-black text-white font-outfit">11+</span>
           <p className="text-[11px] font-black text-zinc-500 uppercase tracking-widest mt-3">Repositories</p>
         </div>
         <div className="glass-card p-10 flex flex-col items-center justify-center text-center group hover:bg-blue-500/5 rounded-[2.5rem]">
@@ -138,12 +180,12 @@ export const Hero = () => {
         </div>
         <div className="glass-card p-10 flex flex-col items-center justify-center text-center group hover:bg-cyan-500/5 rounded-[2.5rem]">
           <Code2 className="w-10 h-10 text-zinc-600 mb-5 group-hover:text-cyan-400" />
-          <span className="text-5xl font-black text-white font-outfit">5+</span>
+          <span className="text-5xl font-black text-white font-outfit">3+</span>
           <p className="text-[11px] font-black text-zinc-500 uppercase tracking-widest mt-3">Projects</p>
         </div>
         <div className="glass-card p-10 flex flex-col items-center justify-center text-center group hover:bg-amber-500/5 rounded-[2.5rem]">
           <Award className="w-10 h-10 text-zinc-600 mb-5 group-hover:text-amber-400" />
-          <span className="text-5xl font-black text-white font-outfit">20+</span>
+          <span className="text-5xl font-black text-white font-outfit">15+</span>
           <p className="text-[11px] font-black text-zinc-500 uppercase tracking-widest mt-3">Certificates</p>
         </div>
       </motion.div>

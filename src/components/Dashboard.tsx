@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Activity, Github, ShieldAlert, Star, GitFork, Linkedin, ExternalLink, Award, Code2, Zap } from "lucide-react";
+import { Activity, Github, ShieldAlert, Star, GitFork, Linkedin, ExternalLink, Award, Code2, Zap, Download, Eye } from "lucide-react";
 import linkedinPosts from "../data/linkedin-posts.json";
 import { useState, useEffect } from "react";
 import { getGithubRepos, type Repository } from "@/lib/github";
@@ -8,6 +8,9 @@ import { certs } from "./Certificates";
 export const Dashboard = () => {
   const [repos, setRepos] = useState<Repository[]>([]);
   const [uptime, setUptime] = useState(0);
+  const [visits, setVisits] = useState(1420);
+  const [resumeReads, setResumeReads] = useState(180);
+  const [interactions, setInteractions] = useState(410);
 
   useEffect(() => {
     getGithubRepos("chaitu2303").then(data => setRepos(data));
@@ -17,8 +20,65 @@ export const Dashboard = () => {
     const interval = setInterval(() => {
       setUptime(Math.floor((Date.now() - startTime) / 1000));
     }, 1000);
-    
-    return () => clearInterval(interval);
+
+    // ── Local-First Interactive Analytics Logic ──
+    const storedVisits = localStorage.getItem("chaitu_visits_count");
+    const storedReads = localStorage.getItem("chaitu_reads_count");
+    const storedInteractions = localStorage.getItem("chaitu_interactions_count");
+
+    let currentVisits = storedVisits ? parseInt(storedVisits) : 1420;
+    let currentReads = storedReads ? parseInt(storedReads) : 180;
+    let currentInteractions = storedInteractions ? parseInt(storedInteractions) : 410;
+
+    // Increment visit once per session
+    const isNewSession = !sessionStorage.getItem("chaitu_session_active");
+    if (isNewSession) {
+      currentVisits += 1;
+      localStorage.setItem("chaitu_visits_count", currentVisits.toString());
+      sessionStorage.setItem("chaitu_session_active", "true");
+    }
+
+    setVisits(currentVisits);
+    setResumeReads(currentReads);
+    setInteractions(currentInteractions);
+
+    const handleVisit = () => {
+      setVisits(prev => {
+        const val = prev + 1;
+        localStorage.setItem("chaitu_visits_count", val.toString());
+        return val;
+      });
+    };
+
+    const handleRead = () => {
+      setResumeReads(prev => {
+        const val = prev + 1;
+        localStorage.setItem("chaitu_reads_count", val.toString());
+        return val;
+      });
+    };
+
+    const handleInteraction = () => {
+      setInteractions(prev => {
+        const val = prev + 1;
+        localStorage.setItem("chaitu_interactions_count", val.toString());
+        return val;
+      });
+    };
+
+    window.addEventListener("chaitu_stats_visit", handleVisit);
+    window.addEventListener("chaitu_stats_resume_read", handleRead);
+    window.addEventListener("chaitu_stats_interaction", handleInteraction);
+
+    // Also trigger a page visit event for any load actions
+    window.dispatchEvent(new CustomEvent("chaitu_stats_visit"));
+
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener("chaitu_stats_visit", handleVisit);
+      window.removeEventListener("chaitu_stats_resume_read", handleRead);
+      window.removeEventListener("chaitu_stats_interaction", handleInteraction);
+    };
   }, []);
 
   const formatUptime = (seconds: number) => {
@@ -53,64 +113,36 @@ export const Dashboard = () => {
         
         {/* LEFT: Technical Stats (8 Columns) */}
         <div className="lg:col-span-8 space-y-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <motion.div whileHover={{ y: -5 }} className="glass-card p-10 bg-zinc-950/90 border-white/5 rounded-[2.5rem] flex flex-col items-center justify-center text-center group">
               <Github className="w-10 h-10 text-zinc-600 mb-6 group-hover:text-cyan-400 transition-colors" />
-              <span className="text-5xl font-black text-white font-outfit">{repos.length}</span>
+              <span className="text-5xl font-black text-white font-outfit">11+</span>
               <p className="text-[10px] font-black text-zinc-500 uppercase tracking-[0.3em] mt-3">Live Repos</p>
             </motion.div>
             
             <motion.div whileHover={{ y: -5 }} className="glass-card p-10 bg-zinc-950/90 border-white/5 rounded-[2.5rem] flex flex-col items-center justify-center text-center group">
               <Award className="w-10 h-10 text-zinc-600 mb-6 group-hover:text-amber-400 transition-colors" />
-              <span className="text-5xl font-black text-white font-outfit">{certs.length}+</span>
+              <span className="text-5xl font-black text-white font-outfit">15+</span>
               <p className="text-[10px] font-black text-zinc-500 uppercase tracking-[0.3em] mt-3">Verified Certs</p>
-            </motion.div>
-
-            <motion.div whileHover={{ y: -5 }} className="glass-card p-10 bg-zinc-950/90 border-white/5 rounded-[2.5rem] flex flex-col items-center justify-center text-center group">
-              <ShieldAlert className="w-10 h-10 text-zinc-600 mb-6 group-hover:text-magenta-400 transition-colors" />
-              <span className="text-5xl font-black text-white font-outfit">98%</span>
-              <p className="text-[10px] font-black text-zinc-500 uppercase tracking-[0.3em] mt-3">VAPT Readiness</p>
             </motion.div>
           </div>
 
           {/* Detailed Performance Row */}
-          <div className="glass-card p-10 md:p-14 bg-zinc-950/90 border-white/5 rounded-[3rem] relative overflow-hidden">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
+           <div className="glass-card p-8 md:p-12 bg-zinc-950/90 border-white/5 rounded-[2.5rem] relative overflow-hidden">
+            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 text-left">
               <div className="space-y-4">
-                <h3 className="text-3xl font-black text-white font-outfit uppercase tracking-tighter">System Pulse</h3>
-                <div className="flex items-center gap-4">
-                   <div className="text-[10px] font-black text-zinc-500 uppercase tracking-[0.3em]">Uptime:</div>
-                   <div className="text-xl font-mono font-black text-cyan-400 tabular-nums bg-cyan-500/10 px-4 py-1.5 rounded-lg border border-cyan-500/20 shadow-[0_0_20px_rgba(34,211,238,0.2)]">
-                      {formatUptime(uptime)}
+                <h3 className="text-2xl font-black text-white font-outfit uppercase tracking-tighter">Workspace Activity</h3>
+                <div className="flex flex-wrap items-center gap-6">
+                   <div className="flex items-center gap-3">
+                      <div className="text-[9px] font-black text-zinc-500 uppercase tracking-[0.2em]">Session Time:</div>
+                      <div className="text-lg font-mono font-black text-cyan-400 tabular-nums bg-cyan-500/10 px-4 py-1.5 rounded-lg border border-cyan-500/20 shadow-[0_0_15px_rgba(34,211,238,0.15)]">
+                         {formatUptime(uptime)}
+                      </div>
                    </div>
-                </div>
-              </div>
-              <div className="flex gap-10">
-                <div className="text-center">
-                   <Zap className="w-6 h-6 text-cyan-400 mx-auto mb-2" />
-                   <span className="text-3xl font-black text-white block font-outfit">100%</span>
-                   <p className="text-[8px] font-black text-zinc-600 uppercase tracking-widest mt-1">Project Velocity</p>
-                </div>
-                <div className="text-center">
-                   <Code2 className="w-6 h-6 text-emerald-400 mx-auto mb-2" />
-                   <span className="text-3xl font-black text-white block font-outfit">6+</span>
-                   <p className="text-[8px] font-black text-zinc-600 uppercase tracking-widest mt-1">Core Modules</p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="mt-12 space-y-8">
-              <div className="space-y-3">
-                <div className="flex justify-between text-[10px] font-black text-zinc-400 uppercase tracking-widest">
-                  <span>Cybersecurity Audit Index</span>
-                  <span className="text-magenta-400">98% Verified</span>
-                </div>
-                <div className="h-2.5 bg-white/5 rounded-full overflow-hidden">
-                  <motion.div 
-                    initial={{ width: 0 }}
-                    whileInView={{ width: '98%' }}
-                    className="h-full bg-gradient-to-r from-magenta-600 to-rose-600 shadow-[0_0_20px_rgba(217,70,239,0.3)]"
-                  />
+                   <div className="flex items-center gap-3">
+                      <div className="text-[9px] font-black text-zinc-500 uppercase tracking-[0.2em]">Current Goal:</div>
+                      <span className="text-xs font-black text-amber-400 bg-amber-500/10 px-3 py-1.5 rounded-lg border border-amber-500/20 uppercase tracking-widest">Grow in AI & Full-Stack</span>
+                   </div>
                 </div>
               </div>
             </div>

@@ -9,7 +9,6 @@ import { TechStack } from "@/components/TechStack";
 import { EngineeringDepth } from "@/components/EngineeringDepth";
 import { Experience } from "@/components/Experience";
 import { Roadmap } from "@/components/Roadmap";
-import { Dashboard } from "@/components/Dashboard";
 import { MyWorld } from "@/components/MyWorld";
 import { Certificates } from "@/components/Certificates";
 import { CodingBackground } from "@/components/CodingBackground";
@@ -29,7 +28,6 @@ export default function Home() {
     { name: "Experience", id: "experience" },
     { name: "Certs", id: "certifications" },
     { name: "Roadmap", id: "roadmap" },
-    { name: "Analytics", id: "dashboard" },
     { name: "My Ecosystem", id: "myworld" },
     { name: "Contact", id: "contact" },
   ];
@@ -188,10 +186,6 @@ export default function Home() {
 
             <section id="roadmap" className="scroll-mt-20 md:scroll-mt-24">
               <Roadmap />
-            </section>
-
-            <section id="dashboard" className="scroll-mt-20 md:scroll-mt-24">
-              <Dashboard />
             </section>
 
             <section id="myworld" className="scroll-mt-20 md:scroll-mt-24">

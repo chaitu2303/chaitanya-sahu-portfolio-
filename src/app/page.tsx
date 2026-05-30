@@ -14,6 +14,8 @@ import { Certificates } from "@/components/Certificates";
 import { CodingBackground } from "@/components/CodingBackground";
 import { Splash } from "@/components/Splash";
 import { Contact } from "@/components/Contact";
+import { RadialGlowBackground } from "@/components/ui/radial-glow-background";
+import FlowArt, { FlowSection } from "@/components/ui/story-scroll";
 import { Github, Linkedin, Mail, ExternalLink, ShieldCheck, Menu, X, Search } from "lucide-react";
 
 export default function Home() {
@@ -37,8 +39,9 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-[#050505] text-zinc-100 overflow-x-hidden font-sans">
-      <motion.div
+    <RadialGlowBackground>
+      <main className="min-h-screen text-zinc-100 overflow-x-hidden font-sans">
+        <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -148,12 +151,12 @@ export default function Home() {
           </nav>
 
           {/* ── Page Sections ── */}
-          <div className="relative z-10 space-y-20 md:space-y-36 pb-20">
-            <section id="home">
+          <FlowArt aria-label="Portfolio Sections">
+            <FlowSection id="home" style={{ backgroundColor: '#050505', zIndex: 1 }}>
               <Hero />
-            </section>
+            </FlowSection>
             
-            <section id="projects" className="scroll-mt-20 md:scroll-mt-24">
+            <FlowSection id="projects" style={{ backgroundColor: '#0a0a0a', zIndex: 2 }}>
               <Projects />
               <div className="mt-20 md:mt-24">
                 <ProjectSpotlight />
@@ -161,32 +164,32 @@ export default function Home() {
               <div className="mt-20 md:mt-24">
                 <EngineeringDepth />
               </div>
-            </section>
+            </FlowSection>
 
-            <section id="skills" className="scroll-mt-20 md:scroll-mt-24">
+            <FlowSection id="skills" style={{ backgroundColor: '#050505', zIndex: 3 }}>
               <TechStack />
-            </section>
+            </FlowSection>
 
-            <section id="experience" className="scroll-mt-20 md:scroll-mt-24">
+            <FlowSection id="experience" style={{ backgroundColor: '#0a0a0a', zIndex: 4 }}>
               <Experience />
-            </section>
+            </FlowSection>
 
-            <section id="certifications" className="scroll-mt-20 md:scroll-mt-24">
+            <FlowSection id="certifications" style={{ backgroundColor: '#050505', zIndex: 5 }}>
               <Certificates />
-            </section>
+            </FlowSection>
 
-            <section id="roadmap" className="scroll-mt-20 md:scroll-mt-24">
+            <FlowSection id="roadmap" style={{ backgroundColor: '#0a0a0a', zIndex: 6 }}>
               <Roadmap />
-            </section>
+            </FlowSection>
 
-            <section id="myworld" className="scroll-mt-20 md:scroll-mt-24">
+            <FlowSection id="myworld" style={{ backgroundColor: '#050505', zIndex: 7 }}>
               <MyWorld />
-            </section>
+            </FlowSection>
 
-            <section id="contact" className="scroll-mt-20 md:scroll-mt-24">
+            <FlowSection id="contact" style={{ backgroundColor: '#0a0a0a', zIndex: 8 }}>
               <Contact />
-            </section>
-          </div>
+            </FlowSection>
+          </FlowArt>
 
           {/* ── Footer ── */}
           <footer className="relative z-10 py-16 border-t border-white/10 bg-zinc-950/50">
@@ -201,6 +204,7 @@ export default function Home() {
              </div>
           </footer>
         </motion.div>
-    </main>
+      </main>
+    </RadialGlowBackground>
   );
 }

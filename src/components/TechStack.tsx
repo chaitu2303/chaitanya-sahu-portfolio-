@@ -91,7 +91,7 @@ export const TechStack = () => {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               whileHover={{ y: -8, transition: { duration: 0.2 } }}
-              className="glass-card p-6 md:p-10 bg-zinc-950/60 border border-white/5 hover:border-cyan-500/30 rounded-[3rem] relative overflow-hidden backdrop-blur-3xl flex flex-col justify-between gap-6 hover:shadow-[0_0_35px_rgba(34,211,238,0.12)] transition-all duration-300 group"
+              className="glass-card p-6 md:p-10 bg-white/5 backdrop-blur-3xl border border-white/5 hover:border-cyan-500/30 rounded-[3rem] relative overflow-hidden flex flex-col justify-between gap-6 hover:shadow-[0_0_35px_rgba(34,211,238,0.12)] transition-all duration-300 group"
             >
               {/* Subtle Cyber Scanline Overlay */}
               <motion.div 

@@ -27,7 +27,7 @@ export const EngineeringDepth = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         {/* Left Column: Interactive Diagram (7 Columns) */}
         <div className="lg:col-span-7 space-y-8">
-          <div className="glass-card p-6 md:p-10 bg-zinc-950/80 border border-white/5 rounded-[3.5rem] relative overflow-hidden shadow-2xl">
+          <div className="glass-card p-6 md:p-10 bg-white/5 backdrop-blur-3xl border border-white/5 rounded-[3.5rem] relative overflow-hidden shadow-2xl">
             <div className="flex items-center justify-between mb-8">
               <span className="text-[10px] font-black text-zinc-500 uppercase tracking-widest flex items-center gap-2">
                 <Radio className="w-4 h-4 text-cyan-400 animate-pulse" />
@@ -127,7 +127,7 @@ export const EngineeringDepth = () => {
         {/* Right Column: Key Pillars (5 Columns) */}
         <div className="lg:col-span-5 space-y-6">
           {/* Pillar 1 */}
-          <div className="glass-card p-8 bg-zinc-950/40 border border-white/5 rounded-[2rem] hover:border-cyan-500/20 transition-all flex items-start gap-5">
+          <div className="glass-card p-8 bg-white/5 backdrop-blur-md border border-white/5 rounded-[2rem] hover:border-cyan-500/20 transition-all flex items-start gap-5">
             <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center flex-shrink-0">
               <Zap className="w-5 h-5 text-cyan-400" />
             </div>
@@ -140,7 +140,7 @@ export const EngineeringDepth = () => {
           </div>
 
           {/* Pillar 2 */}
-          <div className="glass-card p-8 bg-zinc-950/40 border border-white/5 rounded-[2rem] hover:border-blue-500/20 transition-all flex items-start gap-5">
+          <div className="glass-card p-8 bg-white/5 backdrop-blur-md border border-white/5 rounded-[2rem] hover:border-blue-500/20 transition-all flex items-start gap-5">
             <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
               <BellRing className="w-5 h-5 text-blue-400" />
             </div>
@@ -153,7 +153,7 @@ export const EngineeringDepth = () => {
           </div>
 
           {/* Pillar 3 */}
-          <div className="glass-card p-8 bg-zinc-950/40 border border-white/5 rounded-[2rem] hover:border-magenta-500/20 transition-all flex items-start gap-5">
+          <div className="glass-card p-8 bg-white/5 backdrop-blur-md border border-white/5 rounded-[2rem] hover:border-magenta-500/20 transition-all flex items-start gap-5">
             <div className="w-12 h-12 rounded-xl bg-magenta-500/10 border border-magenta-500/20 flex items-center justify-center flex-shrink-0">
               <ShieldCheck className="w-5 h-5 text-magenta-400" />
             </div>

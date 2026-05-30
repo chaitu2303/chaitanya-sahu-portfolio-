@@ -152,11 +152,11 @@ export default function Home() {
 
           {/* ── Page Sections ── */}
           <FlowArt aria-label="Portfolio Sections">
-            <FlowSection id="home" style={{ backgroundColor: '#050505', zIndex: 1 }}>
+            <FlowSection id="home" className="bg-[#020617]/40 backdrop-blur-3xl border-t border-white/5" style={{ zIndex: 1 }}>
               <Hero />
             </FlowSection>
             
-            <FlowSection id="projects" style={{ backgroundColor: '#0a0a0a', zIndex: 2 }}>
+            <FlowSection id="projects" className="bg-[#020617]/40 backdrop-blur-3xl border-t border-white/5" style={{ zIndex: 2 }}>
               <Projects />
               <div className="mt-20 md:mt-24">
                 <ProjectSpotlight />
@@ -166,27 +166,27 @@ export default function Home() {
               </div>
             </FlowSection>
 
-            <FlowSection id="skills" style={{ backgroundColor: '#050505', zIndex: 3 }}>
+            <FlowSection id="skills" className="bg-[#020617]/40 backdrop-blur-3xl border-t border-white/5" style={{ zIndex: 3 }}>
               <TechStack />
             </FlowSection>
 
-            <FlowSection id="experience" style={{ backgroundColor: '#0a0a0a', zIndex: 4 }}>
+            <FlowSection id="experience" className="bg-[#020617]/40 backdrop-blur-3xl border-t border-white/5" style={{ zIndex: 4 }}>
               <Experience />
             </FlowSection>
 
-            <FlowSection id="certifications" style={{ backgroundColor: '#050505', zIndex: 5 }}>
+            <FlowSection id="certifications" className="bg-[#020617]/40 backdrop-blur-3xl border-t border-white/5" style={{ zIndex: 5 }}>
               <Certificates />
             </FlowSection>
 
-            <FlowSection id="roadmap" style={{ backgroundColor: '#0a0a0a', zIndex: 6 }}>
+            <FlowSection id="roadmap" className="bg-[#020617]/40 backdrop-blur-3xl border-t border-white/5" style={{ zIndex: 6 }}>
               <Roadmap />
             </FlowSection>
 
-            <FlowSection id="myworld" style={{ backgroundColor: '#050505', zIndex: 7 }}>
+            <FlowSection id="myworld" className="bg-[#020617]/40 backdrop-blur-3xl border-t border-white/5" style={{ zIndex: 7 }}>
               <MyWorld />
             </FlowSection>
 
-            <FlowSection id="contact" style={{ backgroundColor: '#0a0a0a', zIndex: 8 }}>
+            <FlowSection id="contact" className="bg-[#020617]/40 backdrop-blur-3xl border-t border-white/5" style={{ zIndex: 8 }}>
               <Contact />
             </FlowSection>
           </FlowArt>

@@ -42,7 +42,7 @@ export const ProjectSpotlight = () => {
         {/* Left Column: Systems Analysis (7 Columns) */}
         <div className="lg:col-span-7 space-y-12">
           {/* Section 1: The Problem & Limitation */}
-          <div className="glass-card p-8 md:p-12 bg-zinc-950/60 border border-white/5 rounded-[3rem] relative overflow-hidden">
+          <div className="glass-card p-8 md:p-12 bg-white/5 backdrop-blur-md border border-white/10 rounded-[3rem] relative overflow-hidden">
             <div className="flex items-center gap-3 mb-6 text-red-400 font-black uppercase tracking-widest text-xs">
               <ShieldAlert className="w-4 h-4 animate-pulse" />
               01 // The System Bottleneck
@@ -61,7 +61,7 @@ export const ProjectSpotlight = () => {
           </div>
 
           {/* Section 2: Real Technical Implementation */}
-          <div className="glass-card p-8 md:p-12 bg-zinc-950/60 border border-white/5 rounded-[3rem] relative overflow-hidden">
+          <div className="glass-card p-8 md:p-12 bg-white/5 backdrop-blur-md border border-white/10 rounded-[3rem] relative overflow-hidden">
             <div className="flex items-center gap-3 mb-6 text-cyan-400 font-black uppercase tracking-widest text-xs">
               <Activity className="w-4 h-4" />
               02 // Concrete Engineering Implementations
@@ -83,7 +83,7 @@ export const ProjectSpotlight = () => {
         {/* Right Column: Decisions, Trade-offs & Actions (5 Columns) */}
         <div className="lg:col-span-5 space-y-8">
           {/* Trade-offs & Decisions Card */}
-          <div className="glass-card p-8 md:p-10 bg-zinc-950/60 border border-white/5 rounded-[3rem] relative overflow-hidden">
+          <div className="glass-card p-8 md:p-10 bg-white/5 backdrop-blur-md border border-white/10 rounded-[3rem] relative overflow-hidden">
             <div className="flex items-center gap-3 mb-6 text-amber-400 font-black uppercase tracking-widest text-xs">
               <Scale className="w-4 h-4" />
               03 // Engineering Trade-offs
@@ -114,7 +114,7 @@ export const ProjectSpotlight = () => {
           </div>
 
           {/* Future Scaling scope */}
-          <div className="glass-card p-8 md:p-10 bg-zinc-950/60 border border-white/5 rounded-[3rem] relative overflow-hidden">
+          <div className="glass-card p-8 md:p-10 bg-white/5 backdrop-blur-md border border-white/10 rounded-[3rem] relative overflow-hidden">
             <div className="flex items-center gap-3 mb-6 text-violet-400 font-black uppercase tracking-widest text-xs">
               <Compass className="w-4 h-4" />
               04 // Future Scaling

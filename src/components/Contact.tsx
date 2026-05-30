@@ -92,7 +92,7 @@ export const Contact = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 + idx * 0.1 }}
                   whileHover={{ scale: 1.02, x: 5 }}
-                  className="group flex items-center gap-5 p-5 rounded-[2rem] bg-zinc-950/40 border border-white/5 hover:border-violet-500/30 transition-all"
+                  className="group flex items-center gap-5 p-5 rounded-[2rem] bg-white/5 backdrop-blur-md border border-white/5 hover:border-violet-500/30 transition-all"
                 >
                   <div className={`p-4 rounded-2xl ${link.bg} ${link.color} group-hover:scale-110 transition-transform`}>
                     <link.icon className="w-6 h-6" />
@@ -127,7 +127,7 @@ export const Contact = () => {
           >
             <div className="relative group">
               {/* Glass Card Container */}
-              <div className="relative glass-card p-8 sm:p-12 bg-zinc-950/60 backdrop-blur-3xl border-white/10 rounded-[3.5rem] shadow-[0_50px_100px_rgba(0,0,0,0.8)] overflow-hidden">
+              <div className="relative glass-card p-8 sm:p-12 bg-white/5 backdrop-blur-3xl border border-white/10 rounded-[3.5rem] shadow-[0_50px_100px_rgba(0,0,0,0.8)] overflow-hidden">
                 
                 {/* Form Header */}
                 <div className="mb-10">

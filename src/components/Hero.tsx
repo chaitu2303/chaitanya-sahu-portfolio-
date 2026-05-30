@@ -141,22 +141,22 @@ export const Hero = () => {
         transition={{ delay: 0.5 }}
         className="w-full max-w-7xl mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
       >
-        <div className="bg-white/[0.02] border border-white/5 p-8 flex flex-col items-center justify-center text-center rounded-2xl shadow-sm">
+        <div className="bg-white/5 backdrop-blur-md border border-white/10 p-8 flex flex-col items-center justify-center text-center rounded-2xl shadow-sm">
           <Github className="w-8 h-8 text-zinc-500 mb-3" />
           <span className="text-4xl font-bold text-white">11+</span>
           <p className="text-xs font-semibold text-zinc-500 uppercase mt-2">Repositories</p>
         </div>
-        <div className="bg-white/[0.02] border border-white/5 p-8 flex flex-col items-center justify-center text-center rounded-2xl shadow-sm">
+        <div className="bg-white/5 backdrop-blur-md border border-white/10 p-8 flex flex-col items-center justify-center text-center rounded-2xl shadow-sm">
           <Briefcase className="w-8 h-8 text-zinc-500 mb-3" />
           <span className="text-4xl font-bold text-white">2</span>
           <p className="text-xs font-semibold text-zinc-500 uppercase mt-2">Internships</p>
         </div>
-        <div className="bg-white/[0.02] border border-white/5 p-8 flex flex-col items-center justify-center text-center rounded-2xl shadow-sm">
+        <div className="bg-white/5 backdrop-blur-md border border-white/10 p-8 flex flex-col items-center justify-center text-center rounded-2xl shadow-sm">
           <Code2 className="w-8 h-8 text-zinc-500 mb-3" />
           <span className="text-4xl font-bold text-white">3+</span>
           <p className="text-xs font-semibold text-zinc-500 uppercase mt-2">Projects</p>
         </div>
-        <div className="bg-white/[0.02] border border-white/5 p-8 flex flex-col items-center justify-center text-center rounded-2xl shadow-sm">
+        <div className="bg-white/5 backdrop-blur-md border border-white/10 p-8 flex flex-col items-center justify-center text-center rounded-2xl shadow-sm">
           <Award className="w-8 h-8 text-zinc-500 mb-3" />
           <span className="text-4xl font-bold text-white">15+</span>
           <p className="text-xs font-semibold text-zinc-500 uppercase mt-2">Certificates</p>

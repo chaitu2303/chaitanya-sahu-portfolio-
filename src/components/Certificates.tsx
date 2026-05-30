@@ -226,7 +226,6 @@ export const Certificates = () => {
               Continuous Learning
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
-              Verified <br className="hidden md:block" />
               <span className="text-blue-500">Certificates</span>
             </h2>
           </div>

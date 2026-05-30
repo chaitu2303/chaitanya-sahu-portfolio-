@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Github, Linkedin, ShieldCheck, Code2, Award, Briefcase, Sparkles } from "lucide-react";
 import { ShaderAnimation } from "@/components/ui/shader-lines";
+import { CertificateModal } from "@/components/CertificateModal";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { STATS_EVENTS, trackEvent } from "@/lib/stats";
@@ -10,6 +11,7 @@ import { getGithubRepos, type Repository } from "@/lib/github";
 
 export const Hero = () => {
   const [repos, setRepos] = useState<Repository[]>([]);
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   useEffect(() => {
     getGithubRepos("chaitu2303").then(data => setRepos(data));
@@ -64,10 +66,10 @@ export const Hero = () => {
              </p>
           </div>
 
-          <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-            <button onClick={scrollToProjects} className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-semibold transition-all flex items-center gap-2">
-              View My Work
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start w-full md:w-auto relative z-20">
+            <button onClick={() => setIsResumeOpen(true)} className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-semibold transition-all flex items-center gap-2">
+              View My Resume
+              <ArrowRight className="w-4 h-4" />
             </button>
             <button onClick={scrollToContact} className="px-6 py-3 rounded-xl border border-white/20 text-zinc-300 font-semibold hover:bg-white/5 transition-all">
               Contact
@@ -167,6 +169,13 @@ export const Hero = () => {
           <p className="text-xs font-semibold text-zinc-500 uppercase mt-2">Certificates</p>
         </div>
       </motion.div>
+
+      <CertificateModal 
+        isOpen={isResumeOpen}
+        onClose={() => setIsResumeOpen(false)}
+        pdfUrl="/Chaitanya_Sahu_Resume.pdf"
+        title="Chaitanya Kumar Sahu - Resume"
+      />
 
     </div>
   );

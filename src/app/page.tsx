@@ -17,7 +17,6 @@ import { Contact } from "@/components/Contact";
 import { Github, Linkedin, Mail, ExternalLink, ShieldCheck, Menu, X, Search } from "lucide-react";
 
 export default function Home() {
-  const [showSplash, setShowSplash] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { scrollYProgress } = useScroll();
 
@@ -39,8 +38,6 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-[#050505] text-zinc-100 overflow-x-hidden font-sans">
-
-      {!showSplash && (
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -204,7 +201,6 @@ export default function Home() {
              </div>
           </footer>
         </motion.div>
-      )}
     </main>
   );
 }

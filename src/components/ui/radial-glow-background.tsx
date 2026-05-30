@@ -18,7 +18,7 @@ export function CodeRain() {
 
     const characters = "const let var function => return () {} [] ; : import export interface type class extends implements new public private protected static readonly string number boolean any void null undefined await async try catch throw if else for while switch case break continue default true false console.log".split(" ")
 
-    const fontSize = 12
+    const fontSize = 24 // Larger font = fewer columns = better performance
     const columns = width / fontSize
     const drops: number[] = []
 
@@ -26,25 +26,35 @@ export function CodeRain() {
       drops[x] = 1
     }
 
-    const draw = () => {
-      ctx.fillStyle = "rgba(2, 6, 23, 0.05)" // fading effect
+    let animationFrameId: number;
+    let lastDrawTime = 0;
+    const fpsInterval = 1000 / 15; // 15 FPS is plenty for retro code rain and saves CPU
+
+    const draw = (timestamp: number) => {
+      animationFrameId = requestAnimationFrame(draw)
+
+      const elapsed = timestamp - lastDrawTime
+      if (elapsed < fpsInterval) return
+      lastDrawTime = timestamp - (elapsed % fpsInterval)
+
+      ctx.fillStyle = "rgba(2, 6, 23, 0.1)" // Fades background faster so we don't have infinite overdraw
       ctx.fillRect(0, 0, width, height)
 
-      ctx.fillStyle = "rgba(34, 211, 238, 0.2)" // cyan text, slightly faint
+      ctx.fillStyle = "rgba(34, 211, 238, 0.15)" // cyan text, slightly faint
       ctx.font = `${fontSize}px monospace`
 
       for (let i = 0; i < drops.length; i++) {
         const text = characters[Math.floor(Math.random() * characters.length)]
         ctx.fillText(text, i * fontSize, drops[i] * fontSize)
 
-        if (drops[i] * fontSize > height && Math.random() > 0.975) {
+        if (drops[i] * fontSize > height && Math.random() > 0.98) {
           drops[i] = 0
         }
         drops[i]++
       }
     }
 
-    const interval = setInterval(draw, 35)
+    animationFrameId = requestAnimationFrame(draw)
 
     const handleResize = () => {
       width = window.innerWidth
@@ -59,7 +69,7 @@ export function CodeRain() {
 
     window.addEventListener("resize", handleResize)
     return () => {
-      clearInterval(interval)
+      cancelAnimationFrame(animationFrameId)
       window.removeEventListener("resize", handleResize)
     }
   }, [])

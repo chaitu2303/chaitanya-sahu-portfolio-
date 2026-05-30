@@ -132,9 +132,10 @@ export function ShaderAnimation() {
     const mesh = new THREE.Mesh(geometry, material)
     scene.add(mesh)
 
-    // Initialize renderer
-    const renderer = new THREE.WebGLRenderer()
-    renderer.setPixelRatio(window.devicePixelRatio)
+    // Initialize renderer with optimizations
+    const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true })
+    // Cap pixel ratio to save GPU on 4K/retina displays
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5))
     container.appendChild(renderer.domElement)
 
     // Store references

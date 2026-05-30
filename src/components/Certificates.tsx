@@ -12,7 +12,7 @@ export const certs = [
     date: "May 2026",
     icon: Code2,
     color: "blue",
-    link: "/certificates/codechef_python_2026.png",
+    link: "/certificates/codechef_python_2026.pdf",
     priority: 1,
   },
   {
@@ -22,7 +22,7 @@ export const certs = [
     date: "May 2026",
     icon: Brain,
     color: "emerald",
-    link: "/certificates/microsoft_ai_2026.png",
+    link: "/certificates/microsoft_ai_2026.pdf",
     priority: 1,
   },
   {

@@ -33,7 +33,7 @@ export default function Home() {
     { name: "Projects", id: "projects" },
     { name: "Capabilities", id: "skills" },
     { name: "Experience", id: "experience" },
-    { name: "Certs", id: "certifications" },
+    { name: "Certificates", id: "certifications" },
     { name: "Roadmap", id: "roadmap" },
     { name: "My Ecosystem", id: "myworld" },
     { name: "Contact", id: "contact" },

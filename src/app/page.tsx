@@ -42,7 +42,7 @@ export default function Home() {
   const scrollTo = (id: string) => {
     if (typeof window !== "undefined") {
       gsap.to(window, { 
-        duration: 1, 
+        duration: 0.4, 
         scrollTo: { y: id === "home" ? 0 : `#${id}`, autoKill: false }, 
         ease: "power2.inOut" 
       });

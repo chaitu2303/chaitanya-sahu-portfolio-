@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Github, Linkedin, ShieldCheck, Code2, Award, Briefcase, Sparkles } from "lucide-react";
+import { ShaderAnimation } from "@/components/ui/shader-lines";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { STATS_EVENTS, trackEvent } from "@/lib/stats";
@@ -83,14 +84,18 @@ export const Hero = () => {
         >
           {/* Profile Card Container */}
           <div className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-96 lg:h-96 rounded-full bg-zinc-900/50 p-2 border border-white/10 shadow-2xl overflow-hidden mx-auto">
-             <Image 
-               src="/profile.JPG" 
-               width={384} 
-               height={384} 
-               alt="Chaitanya Kumar Sahu" 
-               className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-500" 
-               priority 
-             />
+            <ShaderAnimation />
+            <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 to-blue-500/20 animate-pulse mix-blend-overlay z-10 pointer-events-none" />
+            <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-white/10 z-20">
+               <Image 
+                 src="/profile.JPG" 
+                 width={384} 
+                 height={384} 
+                 alt="Chaitanya Kumar Sahu" 
+                 className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-500" 
+                 priority 
+               />
+            </div>
           </div>
 
           {/* Availability Badge */}

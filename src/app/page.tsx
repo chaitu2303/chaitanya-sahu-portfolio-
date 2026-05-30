@@ -17,6 +17,12 @@ import { Contact } from "@/components/Contact";
 import { RadialGlowBackground } from "@/components/ui/radial-glow-background";
 import FlowArt, { FlowSection } from "@/components/ui/story-scroll";
 import { Github, Linkedin, Mail, ExternalLink, ShieldCheck, Menu, X, Search } from "lucide-react";
+import { gsap } from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollToPlugin);
+}
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -34,7 +40,13 @@ export default function Home() {
   ];
 
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    if (typeof window !== "undefined") {
+      gsap.to(window, { 
+        duration: 1, 
+        scrollTo: { y: `#${id}`, autoKill: false }, 
+        ease: "power2.inOut" 
+      });
+    }
     setMobileMenuOpen(false);
   };
 
@@ -49,28 +61,26 @@ export default function Home() {
       >
         {/* ── Navigation (Adaptive Floating Header) ── */}
         <nav className="fixed top-4 md:top-8 left-0 right-0 z-50 flex justify-center px-4 transition-all duration-300">
-          <div className="relative bg-zinc-950/80 backdrop-blur-md border border-white/10 px-4 md:px-8 py-3 md:py-4 rounded-2xl flex items-center justify-between shadow-2xl w-full max-w-4xl gap-4">
+          <div className="relative bg-zinc-950/80 backdrop-blur-md border border-white/10 px-4 md:px-6 py-3 rounded-2xl flex items-center justify-between shadow-2xl w-full max-w-5xl gap-4">
             {/* Scroll Progress Bar */}
             <motion.div 
               className="absolute bottom-0 left-6 right-6 h-[2px] bg-zinc-700 origin-left z-50 rounded-full"
               style={{ scaleX: scrollYProgress }}
             />
               
-            {/* Left Logo / Initials (Mobile Friendly) */}
-            <div className="flex items-center gap-3 pr-3 md:pr-6 border-r border-white/10">
+            {/* Left Section: Logo & Socials */}
+            <div className="flex items-center gap-4 flex-1">
                <button onClick={() => scrollTo("home")} className="text-sm md:text-base font-bold tracking-wider text-white">
                  CKS<span className="text-blue-500">.</span>
                </button>
-            </div>
-
-            {/* Social Links (Desktop Only) */}
-            <div className="hidden md:flex items-center gap-4 border-r border-white/10 pr-6">
-               <a href="https://github.com/chaitu2303" target="_blank" rel="noreferrer" className="text-zinc-500 hover:text-white transition-colors"><Github className="w-5 h-5" /></a>
-               <a href="https://linkedin.com/in/chaitanya-kumar-sahu" target="_blank" rel="noreferrer" className="text-zinc-500 hover:text-white transition-colors"><Linkedin className="w-5 h-5" /></a>
+               <div className="hidden md:flex items-center gap-4 pl-4 border-l border-white/10">
+                  <a href="https://github.com/chaitu2303" target="_blank" rel="noreferrer" className="text-zinc-500 hover:text-white transition-colors"><Github className="w-5 h-5" /></a>
+                  <a href="https://linkedin.com/in/chaitanya-kumar-sahu" target="_blank" rel="noreferrer" className="text-zinc-500 hover:text-white transition-colors"><Linkedin className="w-5 h-5" /></a>
+               </div>
             </div>
               
-            {/* Desktop Menu */}
-            <div className="hidden lg:flex items-center gap-6 xl:gap-8 pl-4 border-r border-white/10 pr-6 xl:pr-8 mr-4 xl:mr-6">
+            {/* Center Section: Desktop Menu */}
+            <div className="hidden lg:flex items-center justify-center gap-6 xl:gap-8 flex-none">
               {menuItems.map((item) => (
                  <button
                    key={item.id}
@@ -82,18 +92,18 @@ export default function Home() {
               ))}
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex items-center gap-2.5">
+            {/* Right Section: Action Buttons */}
+            <div className="flex items-center justify-end gap-2.5 flex-1">
               <button 
                 onClick={() => scrollTo("certifications")}
-                className="hidden md:flex p-2 rounded-lg bg-white/5 text-zinc-400 hover:text-white transition-all mr-1.5"
+                className="hidden md:flex p-2 rounded-lg bg-white/5 text-zinc-400 hover:text-white transition-all"
               >
                 <Search className="w-4 h-4" />
               </button>
               
               <button 
                 onClick={() => scrollTo("contact")}
-                className="hidden sm:flex bg-blue-600 hover:bg-blue-500 text-white px-4 md:px-6 py-2 md:py-2.5 rounded-xl text-xs md:text-sm font-semibold transition-all items-center gap-2 group whitespace-nowrap"
+                className="hidden sm:flex bg-blue-600 hover:bg-blue-500 text-white px-4 md:px-5 py-2 md:py-2.5 rounded-xl text-xs font-semibold transition-all items-center gap-2 group whitespace-nowrap"
               >
                 Start Collaboration
                 <ShieldCheck className="w-4 h-4 group-hover:scale-110 transition-transform" />
@@ -107,7 +117,7 @@ export default function Home() {
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
             </div>
-            </div>
+          </div>
 
             {/* Mobile Dropdown Menu */}
             <AnimatePresence>

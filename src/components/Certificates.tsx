@@ -6,13 +6,23 @@ import { CertificateModal } from "@/components/CertificateModal";
 export const certs = [
   // 🛡️ ELITE CORE (Show publicly, 8–12 limit)
   {
-    title: "Datavalley Big Data & Engineering Internship",
-    issuer: "Datavalley Solutions",
-    category: "Internship",
-    date: "2025",
-    icon: Briefcase,
+    title: "Learn Python Programming",
+    issuer: "CodeChef",
+    category: "Programming",
+    date: "May 2026",
+    icon: Code2,
     color: "blue",
-    link: "/certificates/symbiosis_internship_2025.pdf", // Backed up link
+    link: "/certificates/codechef_python_2026.png",
+    priority: 1,
+  },
+  {
+    title: "Unlocking AI for Everyone (Beginner)",
+    issuer: "Microsoft / Skill India",
+    category: "AI & ML",
+    date: "May 2026",
+    icon: Brain,
+    color: "emerald",
+    link: "/certificates/microsoft_ai_2026.png",
     priority: 1,
   },
   {
@@ -140,12 +150,11 @@ export const certs = [
 ];
 
 const COLORS: Record<string, string> = {
-  cyan: "text-cyan-400 bg-cyan-500/10 border-cyan-500/20",
+  emerald: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
   blue: "text-blue-400 bg-blue-500/10 border-blue-500/20",
-  magenta: "text-magenta-400 bg-magenta-500/10 border-magenta-500/20",
-  violet: "text-violet-400 bg-violet-500/10 border-violet-500/20",
+  indigo: "text-indigo-400 bg-indigo-500/10 border-indigo-500/20",
   amber: "text-amber-400 bg-amber-500/10 border-amber-500/20",
-  zinc: "text-zinc-500 bg-white/5 border-white/5",
+  slate: "text-zinc-400 bg-zinc-500/10 border-zinc-500/20",
 };
 
 export const Certificates = () => {
@@ -171,7 +180,7 @@ export const Certificates = () => {
   const optionalCount = certs.filter(c => c.priority === 3).length;
 
   const renderCertCard = (cert: typeof certs[0]) => {
-    const colorCls = COLORS[cert.color] ?? COLORS.zinc;
+    const colorCls = COLORS[cert.color] ?? COLORS.slate;
     const [textCls, bgCls, borderCls] = colorCls.split(" ");
     return (
       <motion.div
@@ -180,25 +189,25 @@ export const Certificates = () => {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.9 }}
-        className={`glass-card p-6 flex items-start gap-5 group hover:${cert.priority === 1 ? 'border-cyan-500/30' : 'border-white/20'} cursor-pointer rounded-[2rem] transition-all bg-black/40 backdrop-blur-3xl`}
+        className={`bg-zinc-950/50 border p-6 flex items-start gap-5 group hover:${cert.priority === 1 ? 'border-blue-500/50 shadow-md' : 'border-white/20'} cursor-pointer rounded-2xl transition-all shadow-sm ${borderCls}`}
         onClick={() => setSelectedCert({ title: cert.title, url: cert.link })}
       >
-        <div className={`w-14 h-14 rounded-2xl ${bgCls} border ${borderCls} flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform shadow-lg`}>
+        <div className={`w-14 h-14 rounded-xl ${bgCls} border ${borderCls} flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform`}>
           <cert.icon className={`w-7 h-7 ${textCls}`} />
         </div>
 
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-2">
-            <h3 className="text-sm md:text-base font-black text-white mb-1 group-hover:text-cyan-400 transition-colors leading-tight font-outfit uppercase tracking-tighter">
+            <h3 className="text-sm md:text-base font-bold text-white mb-1 group-hover:text-blue-400 transition-colors leading-tight truncate">
               {cert.title}
             </h3>
           </div>
-          <p className="text-zinc-500 text-[10px] md:text-xs font-bold uppercase tracking-widest">{cert.issuer}</p>
+          <p className="text-zinc-400 text-[11px] md:text-xs font-semibold uppercase tracking-wider truncate">{cert.issuer}</p>
           <div className="flex items-center justify-between mt-4">
-            <span className="text-[9px] font-black text-zinc-500 bg-white/5 px-3 py-1 rounded-full uppercase tracking-[0.2em] border border-white/5">
+            <span className="text-[10px] font-bold text-zinc-500 bg-white/5 px-3 py-1 rounded-full uppercase tracking-wider border border-white/5">
               {cert.date}
             </span>
-            <div className="p-2 rounded-xl bg-white/5 text-zinc-400 opacity-0 group-hover:opacity-100 transition-all hover:bg-cyan-500/10 hover:text-cyan-400">
+            <div className="p-2 rounded-lg bg-white/5 text-zinc-400 opacity-0 group-hover:opacity-100 transition-all hover:bg-blue-500/10 hover:text-blue-400 border border-transparent hover:border-blue-500/20">
               <Eye className="w-4 h-4" />
             </div>
           </div>
@@ -210,45 +219,45 @@ export const Certificates = () => {
   return (
     <>
       <div className="section-padding container px-4 mx-auto max-w-7xl">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 md:mb-24 gap-12">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 md:mb-16 gap-8">
           <div className="text-center lg:text-left flex-1">
-            <div className="inline-flex items-center gap-3 px-6 py-2 rounded-xl bg-magenta-500/10 border border-magenta-500/20 text-magenta-400 text-[11px] font-black uppercase tracking-[0.4em] mb-8 shadow-[0_0_25px_rgba(217,70,239,0.2)]">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold mb-6">
               <Award className="w-4 h-4" /> 
               Continuous Learning
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tighter leading-[1.1] font-outfit uppercase">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
               Verified <br className="hidden md:block" />
-              <span className="text-gradient">Credentials</span>
+              <span className="text-blue-500">Credentials</span>
             </h2>
           </div>
 
           <div className="flex flex-col gap-6 w-full lg:w-fit">
              {/* ── Search Bar ── */}
              <div className="relative group w-full lg:min-w-[400px]">
-                <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-500 group-focus-within:text-cyan-400 transition-colors" />
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-500 group-focus-within:text-blue-400 transition-colors" />
                 <input 
                   type="text"
-                  placeholder="Search credentials or issuers..."
+                  placeholder="Search credentials..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-white/[0.03] border border-white/10 rounded-2xl py-4 pl-16 pr-8 text-sm font-bold text-white placeholder:text-zinc-600 focus:outline-none focus:border-cyan-500/50 focus:bg-white/[0.05] transition-all backdrop-blur-3xl"
+                  className="w-full bg-white/[0.03] border border-white/10 rounded-xl py-3 pl-12 pr-4 text-sm font-medium text-white placeholder:text-zinc-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all shadow-sm"
                 />
              </div>
 
              {/* Filter Tabs */}
-             <div className="flex flex-wrap justify-center lg:justify-end gap-2.5 bg-white/[0.03] p-1.5 rounded-2xl border border-white/5 w-fit ml-auto mr-auto lg:mr-0 backdrop-blur-3xl">
+             <div className="flex flex-wrap justify-center lg:justify-end gap-2 bg-white/[0.03] p-1.5 rounded-xl border border-white/10 w-fit ml-auto mr-auto lg:mr-0">
                 {categories.map((cat) => (
                   <button
                     key={cat}
                     onClick={() => setActiveTab(cat)}
-                    className={`relative px-5 py-2.5 rounded-xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all ${
+                    className={`relative px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all ${
                       activeTab === cat ? "text-white" : "text-zinc-500 hover:text-zinc-300"
                     }`}
                   >
                     {activeTab === cat && (
                       <motion.div
                         layoutId="cert-tab"
-                        className="absolute inset-0 bg-cyan-600 border border-cyan-500/50 rounded-xl shadow-[0_0_20px_rgba(34,211,238,0.4)]"
+                        className="absolute inset-0 bg-blue-600 border border-blue-500/50 rounded-lg shadow-sm"
                         transition={{ type: "spring", stiffness: 400, damping: 30 }}
                       />
                     )}
@@ -265,8 +274,8 @@ export const Certificates = () => {
             {filteredCerts.length > 0 ? (
               filteredCerts.map(renderCertCard)
             ) : (
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="col-span-full py-20 text-center">
-                <p className="text-zinc-500 font-bold uppercase tracking-widest">No matching credentials found in catalog.</p>
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="col-span-full py-16 text-center">
+                <p className="text-zinc-500 font-semibold uppercase tracking-wider">No matching credentials found.</p>
               </motion.div>
             )}
           </AnimatePresence>
@@ -274,10 +283,10 @@ export const Certificates = () => {
 
         {/* View Full Inventory Action */}
         {optionalCount > 0 && searchQuery === "" && (
-          <div className="flex flex-col items-center mt-12">
+          <div className="flex flex-col items-center mt-10">
             <button
               onClick={() => setShowAll(!showAll)}
-              className="flex items-center gap-4 px-8 py-4 rounded-2xl bg-white/[0.03] border border-white/10 text-zinc-400 hover:text-white hover:bg-white/10 transition-all text-[10px] font-black uppercase tracking-[0.2em] group shadow-lg"
+              className="flex items-center gap-3 px-6 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-zinc-400 hover:text-white hover:bg-white/10 transition-all text-xs font-bold uppercase tracking-wider shadow-sm group"
             >
               {showAll ? "Hide Basic Certificates" : "View Archived Credentials"}
               <motion.div

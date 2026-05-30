@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 body {
-  background-color: #020205;
-  color: #f8fafc;
+  background-color: #050505;
+  color: #fafafa;
   font-family: var(--font-inter), sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

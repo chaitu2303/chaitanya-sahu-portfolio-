@@ -227,7 +227,7 @@ export const Certificates = () => {
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
               Verified <br className="hidden md:block" />
-              <span className="text-blue-500">Credentials</span>
+              <span className="text-blue-500">Certificates</span>
             </h2>
           </div>
 
@@ -237,7 +237,7 @@ export const Certificates = () => {
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-500 group-focus-within:text-blue-400 transition-colors" />
                 <input 
                   type="text"
-                  placeholder="Search credentials..."
+                  placeholder="Search certificates..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full bg-white/[0.03] border border-white/10 rounded-xl py-3 pl-12 pr-4 text-sm font-medium text-white placeholder:text-zinc-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all shadow-sm"
@@ -275,7 +275,7 @@ export const Certificates = () => {
               filteredCerts.map(renderCertCard)
             ) : (
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="col-span-full py-16 text-center">
-                <p className="text-zinc-500 font-semibold uppercase tracking-wider">No matching credentials found.</p>
+                <p className="text-zinc-500 font-semibold uppercase tracking-wider">No matching certificates found.</p>
               </motion.div>
             )}
           </AnimatePresence>
@@ -288,7 +288,7 @@ export const Certificates = () => {
               onClick={() => setShowAll(!showAll)}
               className="flex items-center gap-3 px-6 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-zinc-400 hover:text-white hover:bg-white/10 transition-all text-xs font-bold uppercase tracking-wider shadow-sm group"
             >
-              {showAll ? "Hide Basic Certificates" : "View Archived Credentials"}
+              {showAll ? "Hide Basic Certificates" : "View Archived Certificates"}
               <motion.div
                 animate={{ rotate: showAll ? 180 : 0 }}
                 transition={{ type: "spring", stiffness: 300 }}

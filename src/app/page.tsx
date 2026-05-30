@@ -43,7 +43,7 @@ export default function Home() {
     if (typeof window !== "undefined") {
       gsap.to(window, { 
         duration: 1, 
-        scrollTo: { y: `#${id}`, autoKill: false }, 
+        scrollTo: { y: id === "home" ? 0 : `#${id}`, autoKill: false }, 
         ease: "power2.inOut" 
       });
     }

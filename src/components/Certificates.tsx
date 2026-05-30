@@ -225,8 +225,8 @@ export const Certificates = () => {
               <Award className="w-4 h-4" /> 
               Continuous Learning
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
-              <span className="text-blue-500">Certificates</span>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-white uppercase tracking-tighter leading-none font-outfit">
+              CERTIFICATES
             </h2>
           </div>
 
